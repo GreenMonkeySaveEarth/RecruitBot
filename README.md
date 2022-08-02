@@ -1,3 +1,7 @@
+# Content for RecruitBot Coding Challenge
+
+For the limited time, I have focused on the routes and game logic as quickly as possible to meet the requirement. Future improvements for maintainability, testability, readability, and security include using hook and relevant unit tests. Happy to discuss more in the future discussion
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
