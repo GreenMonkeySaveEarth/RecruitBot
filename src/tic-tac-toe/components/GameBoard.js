@@ -16,7 +16,7 @@ function GameBoard() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("O");
   const [result, setResult] = useState({ winner: "none", state: "none" });
-
+  // these 2 goes to context
   useEffect(() => {
     checkWin();
     checkIfTie();
@@ -35,6 +35,7 @@ function GameBoard() {
     }
   }, [result]);
   
+  // actions goes to hooks.
   const chooseSquare = (square) => {
     setBoard(
       board.map((val, idx) => {
