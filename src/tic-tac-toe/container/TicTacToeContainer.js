@@ -1,5 +1,5 @@
 
-import { TicTacToeContextProvider } from '../hooks/useTicTacToeContext/provider';
+import TicTacToeContextProvider from '../hooks/useTicTacToeContext/provider';
 import GameBoard from './GameBoard';
 
 export function TicTacToeContainer() {

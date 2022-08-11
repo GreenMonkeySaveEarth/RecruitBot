@@ -3,7 +3,7 @@ import { TicTacToeContext } from './context'
 import { initialState } from './initialState'
 import { reducer } from './reducer'
 
-export function TicTacToeContextProvider ({ children }) {
+function TicTacToeContextProvider ({ children }) {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <TicTacToeContext.Provider value={{state, dispatch}}>
@@ -12,3 +12,5 @@ export function TicTacToeContextProvider ({ children }) {
     )
 
 }
+
+export default TicTacToeContextProvider

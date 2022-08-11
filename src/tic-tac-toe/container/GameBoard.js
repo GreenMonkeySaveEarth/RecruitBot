@@ -6,7 +6,11 @@ import { useGameBoardActions } from '../hooks/useGameBoardActions'
 import { TicTacToeContext } from '../hooks/useTicTacToeContext'
 
 function GameBoard() {
-  const { state: { board, player, result} } = TicTacToeContext();
+  const { 
+    state: { 
+      board, player, result
+    } 
+  } = TicTacToeContext();
   const {
     checkIfTie,
     checkWin,
