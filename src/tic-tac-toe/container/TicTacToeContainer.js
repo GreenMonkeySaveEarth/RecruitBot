@@ -1,8 +1,7 @@
-
-import TicTacToeContextProvider from '../hooks/useTicTacToeContext/provider';
+import { TicTacToeContextProvider } from '../hooks/TicTacToeContext';
 import GameBoard from './GameBoard';
 
-export function TicTacToeContainer() {
+function TicTacToeContainer() {
     return (
         <TicTacToeContextProvider>
             <div>
@@ -12,3 +11,5 @@ export function TicTacToeContainer() {
         </TicTacToeContextProvider>
     )
 }
+
+export default TicTacToeContainer

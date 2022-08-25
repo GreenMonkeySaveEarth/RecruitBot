@@ -1,19 +1,23 @@
 import { useCallback } from 'react';
 
 import { Patterns } from "../constants/Patterns";
-import { TicTacToeContext } from './useTicTacToeContext/context'
+import { useTicTacToeContext } from './TicTacToeContext/useTicTacToeContext'
 
 
 export function useGameBoardActions() {
-    const { state: { board, player }, dispatch } = TicTacToeContext();
-
+    const [state, dispatch ] = useTicTacToeContext();
+    const {
+        useTicTacToeReducer: { 
+          board, player 
+        }
+    } = state
     const setBoard = useCallback(
       (board) => {
         dispatch({type: 'setBoard', payload: board})
       }
     , [dispatch]);
     const setResult = useCallback(
-      (winner, state) => {
+      ({winner, state}) => {
         dispatch({type: 'setResult', payload: {winner, state} })
       }
     , [dispatch]);
@@ -22,8 +26,7 @@ export function useGameBoardActions() {
         dispatch({type: 'setPlayer', payload: player})
       }
     , [dispatch]);
-
-    const chooseSquare = (square) => {
+    const chooseSquare = useCallback((square) => {
       setBoard(
         board.map((val, idx) => {
           if (idx === square && val === "") {
@@ -33,9 +36,9 @@ export function useGameBoardActions() {
           return val;
         })
       );
-    };
+    }, [board, player, setBoard]);
     
-    const checkWin = () => {
+    const checkWin = useCallback(() => {
       Patterns.forEach((currPattern) => {
         const firstPlayer = board[currPattern[0]];
         if (firstPlayer === "") return;
@@ -50,9 +53,9 @@ export function useGameBoardActions() {
           setResult({ winner: player, state: "Won" });
         }
       });
-    };
+    }, [board, setResult]);
   
-    const checkIfTie = () => {
+    const checkIfTie = useCallback(() => {
       let filled = true;
       board.forEach((square) => {
         if (square === "") {
@@ -63,13 +66,13 @@ export function useGameBoardActions() {
       if (filled) {
         setResult({ winner: "No One", state: "Tie" });
       }
-    };
+    }, [board, setResult]);
   
-    const restartGame = () => {
+    const restartGame = useCallback(() => {
       setBoard(["", "", "", "", "", "", "", "", ""]);
-      setPlayer("O");
-    };
-
+      setPlayer("X");
+    }, [setBoard, setPlayer]);
+    
     return {
       checkIfTie,
       checkWin,

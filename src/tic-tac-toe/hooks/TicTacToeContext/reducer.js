@@ -8,8 +8,10 @@ export const reducer = (state, action) => {
       case "setResult":
         return {
           ...state,
-          winner: action.payload.winner,
-          state: action.payload.state
+          result: {
+            winner: action.payload.winner,
+            state: action.payload.state
+          }
         };
       case "setPlayer":
         return {

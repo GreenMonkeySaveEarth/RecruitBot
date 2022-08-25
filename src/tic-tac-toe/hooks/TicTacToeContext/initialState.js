@@ -1,5 +1,5 @@
 export const initialState = {
     board: ["", "", "", "", "", "", "", "", ""],
-    player: "O",
+    player: "X",
     result: { winner: "none", state: "none" },
 }

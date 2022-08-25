@@ -2,7 +2,7 @@ import './assets/style.css';
 import GameBoard from './components/GameBoard';
 import React from 'react';
 
-export function ConnectFour () {
+function ConnectFour () {
   return (
     <div>
       <h1>Connect Four</h1>
@@ -10,3 +10,5 @@ export function ConnectFour () {
     </div>
   );
 }
+
+export default ConnectFour
